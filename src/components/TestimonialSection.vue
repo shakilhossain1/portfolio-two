@@ -16,16 +16,28 @@
         "
       ></div>
       <div id="sliderContainer" class="relative w-[90%] mx-auto h-[300px]">
-        <div class="w-full absolute inset-0 bg-blue-400 flex items-center justify-center text-white text-2xl">slide One</div>
-        <div class="w-full absolute inset-0 bg-green-400 flex items-center justify-center text-white text-2xl">slide two</div>
-        <div class="w-full absolute inset-0 bg-yellow-400 flex items-center justify-center text-white text-2xl">slide three</div>
+        <transition-group name="fade">
+          <div
+            v-for="i in [currentIndex]"
+            :key="i"
+            class="
+              w-full
+              absolute
+              inset-0
+              bg-yellow-400
+              flex
+              items-center
+              justify-center
+              text-white text-2xl
+            "
+          >
+            {{ currentSlide.title }}
+          </div>
+        </transition-group>
       </div>
-      <!-- <carousel>
-        <slide> Slide 1 Content </slide>
-        <slide> Slide 2 Content </slide>
-      </carousel> -->
     </div>
     <p>
+      <button @click="prev">prev</button><button @click="next">next</button>
       Lorem ipsum, dolor sit amet consectetur adipisicing elit. Excepturi
       voluptates quod asperiores harum ipsum, temporibus hic! Odio illum neque
       exercitationem aliquam veritatis labore recusandae modi.
@@ -34,11 +46,71 @@
 </template>
 
 <script>
-import { Carousel, Slide } from 'vue-carousel';
-
 export default {
-  components: { Carousel, Slide },
+  data() {
+    return {
+      testimonials: [
+        {
+          title: 'Slide one',
+        },
+        {
+          title: 'Slide Two',
+        },
+        {
+          title: 'Slide Three',
+        },
+      ],
+      currentIndex: 0,
+      timer: null,
+    };
+  },
+  mounted() {
+    this.startSlide();
+  },
+  methods: {
+    startSlide() {
+      this.timer = setInterval(this.next, 2000);
+    },
+    prev(e) {
+      if (e != undefined) {
+        clearInterval(this.timer);
+        this.timer = setInterval(this.next, 3000);
+      }
+      this.currentIndex -= 1;
+    },
+    next(e) {
+      if (e != undefined) {
+        clearInterval(this.timer);
+        this.timer = setInterval(this.next, 3000);
+      }
+      this.currentIndex += 1;
+    },
+  },
+  computed: {
+    currentSlide() {
+      return this.testimonials[
+        Math.abs(this.currentIndex % this.testimonials.length)
+      ];
+    },
+  },
 };
 </script>
 
-<style></style>
+<style>
+.fade-enter-active,
+.fade-leave-active {
+  transition: all 0.9s ease;
+  overflow: hidden;
+  visibility: visible;
+  position: absolute;
+  width: 100%;
+  opacity: 1;
+}
+
+.fade-enter,
+.fade-leave-to {
+  visibility: hidden;
+  width: 100%;
+  opacity: 0;
+}
+</style>
