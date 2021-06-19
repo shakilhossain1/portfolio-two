@@ -16,9 +16,27 @@ module.exports = {
           primary: withOpacity('var(--color-primary)')
         }
       },
+      textColor: {
+        skin: {
+          primary: withOpacity('var(--color-primary)'),
+          muted: withOpacity('var(--color-muted)'),
+          dark: withOpacity('var(--color-dark)')
+        }
+      },
+      borderColor: {
+        skin: {
+          primary: withOpacity('var(--color-primary)')
+        }
+      },
       container: {
         center: true,
-        padding: '1rem'
+        padding: {
+          DEFAULT: '1rem',
+          sm: '2rem',
+          lg: '4rem',
+          xl: '5rem',
+          '2xl': '6rem',
+        },
       }
     },
   },

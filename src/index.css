@@ -4,4 +4,34 @@
 
 :root {
     --color-primary: 117, 78, 249;
+    --color-muted: 112, 112, 112;
+    --color-dark: 51, 51, 51;
+}
+
+.btn {
+    @apply py-2 px-4 rounded-full transition-all duration-200 uppercase text-sm sm:text-base font-semibold;
+}
+
+.btn-light {
+    @apply bg-white text-skin-primary hover:bg-opacity-80;
+}
+
+.btn-primary {
+    @apply bg-skin-primary text-white hover:bg-opacity-80;
+}
+
+.btn-outline-primary {
+    @apply border-2 border-skin-primary text-skin-primary hover:text-white hover:bg-skin-primary;
+}
+
+.btn-outline-light {
+    @apply border-2 border-white text-white hover:text-skin-primary hover:bg-white;
+}
+
+.heading {
+    @apply text-2xl md:text-3xl lg:text-4xl font-semibold text-skin-dark text-center;
+}
+
+.heading-subtittle {
+    @apply text-skin-muted text-sm md:text-base text-center;
 }
