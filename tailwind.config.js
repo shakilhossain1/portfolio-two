@@ -22,7 +22,8 @@ module.exports = {
         skin: {
           primary: withOpacity('var(--color-primary)'),
           muted: withOpacity('var(--color-muted)'),
-          dark: withOpacity('var(--color-dark)')
+          dark: withOpacity('var(--color-dark)'),
+          secondary: withOpacity('var(--color-secondary)')
         }
       },
       borderColor: {

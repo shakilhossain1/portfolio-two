@@ -64,22 +64,16 @@
           </div>
         </transition-group>
       </div>
-      <div class="flex space-x-3 justify-center mt-4">
-        <span
-          v-for="(item, index) in testimonials"
-          :key="item.id"
-          @click="setCurrentIndex(index)"
-          :class="{ 'bg-opacity-40': index != currentIndex }"
-          class="w-3 h-3 cursor-pointer bg-skin-primary rounded-full"
-        ></span>
-      </div>
     </div>
-    <p>
-      <button @click="prev">prev</button><button @click="next">next</button>
-      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Excepturi
-      voluptates quod asperiores harum ipsum, temporibus hic! Odio illum neque
-      exercitationem aliquam veritatis labore recusandae modi.
-    </p>
+    <div class="flex space-x-3 justify-center mt-4">
+      <span
+        v-for="(item, index) in testimonials"
+        :key="item.id"
+        @click="setCurrentIndex(index)"
+        :class="{ 'bg-opacity-40': index != currentIndex }"
+        class="w-3 h-3 cursor-pointer bg-skin-primary rounded-full"
+      ></span>
+    </div>
   </div>
 </template>
 
@@ -90,28 +84,28 @@ export default {
       testimonials: [
         {
           id: 1,
-          title: "Jhon Wick, New York",
-          image: "/testimonial-one.png",
+          title: 'Jhon Wick, New York',
+          image: '/testimonial-one.png',
           description:
-            "Writing paragraphs takes practice, but what should students write about? Good paragraph writing prompts allow students to write about what they know and like"
+            'Writing paragraphs takes practice, but what should students write about? Good paragraph writing prompts allow students to write about what they know and like',
         },
         {
           id: 2,
-          title: "Slide Two",
-          image: "/testimonial-one.png",
+          title: 'Slide Two',
+          image: '/testimonial-one.png',
           description:
-            "Description two takes practice, but what should students write about? Good paragraph writing"
+            'Description two takes practice, but what should students write about? Good paragraph writing',
         },
         {
           id: 3,
-          title: "Slide Three",
-          image: "/testimonial-one.png",
+          title: 'Slide Three',
+          image: '/testimonial-one.png',
           description:
-            "Writing paragraphs this is another one takes practice, but what should students write about? Good paragraph writing prompts allow students to write about what they know and like, so their focus can be on the writing process and using the four essential elements."
-        }
+            'Writing paragraphs this is another one takes practice, but what should students write about? Good paragraph writing prompts allow students to write about what they know and like, so their focus can be on the writing process and using the four essential elements.',
+        },
       ],
       currentIndex: 0,
-      timer: null
+      timer: null,
     };
   },
   mounted() {
@@ -149,15 +143,15 @@ export default {
     resetTimer() {
       clearInterval(this.timer);
       this.timer = setInterval(this.next, 4000);
-    }
+    },
   },
   computed: {
     currentTestimonial() {
       return this.testimonials[
         Math.abs(this.currentIndex % this.testimonials.length)
       ];
-    }
-  }
+    },
+  },
 };
 </script>
 
