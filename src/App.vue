@@ -1,6 +1,6 @@
 <template>
   <AppHeader></AppHeader>
-  <main>
+  <main class="">
     <ServiceCards class="mt-12"></ServiceCards>
     <PortfolioSection class="mt-12"></PortfolioSection>
     <TestimonialSection class="mt-12"></TestimonialSection>

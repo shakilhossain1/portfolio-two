@@ -13,7 +13,9 @@ module.exports = {
     extend: {
       backgroundColor: {
         skin: {
-          primary: withOpacity('var(--color-primary)')
+          primary: withOpacity('var(--color-primary)'),
+          muted: withOpacity('var(--color-muted)'),
+          dark: withOpacity('var(--color-dark)')
         }
       },
       textColor: {

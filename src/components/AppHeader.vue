@@ -13,7 +13,7 @@
       <a href="#" class="btn btn-primary hidden md:block">Hire me</a>
     </nav>
     <div class="my-auto md:flex md:justify-start md:items-center space-y-4 container">
-      <img src="/IMAGE.png" class="w-44 md:w-80 mx-auto md:mx-0 z-10" alt="" />
+      <img src="/profile-image.png" class="w-44 md:w-80 mx-auto md:mx-0 z-10" alt="" />
       <div class="space-y-4 md:ml-20">
         <h2 class="text-4xl text-white md:text-skin-primary md:text-left text-center font-semibold mt-3">
           Desing & <br />
